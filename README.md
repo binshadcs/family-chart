@@ -44,6 +44,7 @@
       <a href="#getting-started">Getting Started</a>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#managing-members">Managing Members</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -83,6 +84,42 @@ Family Chart is a powerful D3.js-based visualization library for creating beauti
 
 ### [Vue](https://codepen.io/donatso/pen/poMBjZe)
 
+
+## Managing Members
+
+Enable editing to add, update, or remove people from the tree.
+
+```js
+const chart = createChart(data);
+const editor = chart.editTree();
+```
+
+Add a relative for a selected person:
+
+```js
+editor.addRelative(personDatum);
+```
+
+Open the form for an existing member:
+
+```js
+editor.open(personDatum);
+```
+
+Remove a member by clicking **Delete** in the opened form:
+
+```js
+editor.open(personDatum); // then click Delete in the form UI
+```
+
+Use `"O"` for gender to represent **Other**. These cards are styled with a neutral gray background:
+
+```json
+{
+  "id": "1",
+  "data": { "name": "Sam", "gender": "O" }
+}
+```
 
 ## Examples
 
