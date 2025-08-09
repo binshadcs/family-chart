@@ -58,7 +58,11 @@ export function createForm({
     label: 'Gender',
     initial_value: datum.data.gender,
     disabled: ['father', 'mother'].some(rel => rel === datum._new_rel_data?.rel_type) || childred_added,
-    options: [{value: 'M', label: 'Male'}, {value: 'F', label: 'Female'}]
+    options: [
+      {value: 'M', label: 'Male'},
+      {value: 'F', label: 'Female'},
+      {value: 'O', label: 'Other'}
+    ]
   }
 
   fields.forEach(field => {
