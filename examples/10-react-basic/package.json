@@ -1,0 +1,9 @@
+{
+  "name": "family-chart-react-example",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
