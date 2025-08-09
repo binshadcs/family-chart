@@ -14,6 +14,7 @@ export function Form({datum, rel_datum, store, rel_type, card_edit, postSubmit, 
             <div>
               <label><input type="radio" name="gender" value="M" ${datum.data.gender === 'M' ? 'checked' : ''}><span>male</span></label><br>
               <label><input type="radio" name="gender" value="F" ${datum.data.gender === 'F' ? 'checked' : ''}><span>female</span></label><br>
+              <label><input type="radio" name="gender" value="O" ${datum.data.gender === 'O' ? 'checked' : ''}><span>other</span></label><br>
             </div>
           </div>
           ${getEditFields(card_edit)}
