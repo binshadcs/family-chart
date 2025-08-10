@@ -1,6 +1,10 @@
 // @ts-nocheck
 import d3 from "./d3.js"
-import f3 from "./index.js"
+import view from "./view/view.js"
+import createSvg from "./view/view.svg.js"
+import * as htmlHandlers from "./view/view.html.handlers.js"
+import createStore from "./createStore.js"
+import * as handlers from "./handlers.js"
 import editTree from "./CreateTree/editTree.js"
 import linkSpouseText from "./view/elements/LinkSpouseText.js"
 import autocomplete from "./CreateTree/autocomplete.js"
@@ -38,11 +42,11 @@ CreateChart.prototype.init = function(cont, data) {
   const getHtmlSvg = () => cont.querySelector('#htmlSvg')
   const getHtmlView = () => cont.querySelector('#htmlSvg .cards_view')
 
-  this.svg = f3.createSvg(cont, {onZoom: f3.htmlHandlers.onZoomSetup(getSvgView, getHtmlView)})
-  f3.htmlHandlers.createHtmlSvg(cont)
+  this.svg = createSvg(cont, {onZoom: htmlHandlers.onZoomSetup(getSvgView, getHtmlView)})
+  htmlHandlers.createHtmlSvg(cont)
   createNavCont(this.cont)
 
-  this.store = f3.createStore({
+  this.store = createStore({
     data,
     node_separation: this.node_separation,
     level_separation: this.level_separation,
@@ -54,7 +58,7 @@ CreateChart.prototype.init = function(cont, data) {
     if (this.beforeUpdate) this.beforeUpdate(props)
     props = Object.assign({transition_time: this.transition_time}, props || {})
     if (this.is_card_html) props = Object.assign({}, props || {}, {cardHtml: getHtmlSvg()})
-    f3.view(this.store.getTree(), this.svg, this.getCard(), props || {})
+    view(this.store.getTree(), this.svg, this.getCard(), props || {})
     if (this.linkSpouseText) linkSpouseText(this.svg, this.store.getTree(), Object.assign({}, props || {}, {linkSpouseText: this.linkSpouseText, node_separation: this.node_separation}))
     if (this.afterUpdate) this.afterUpdate(props)
   })
@@ -137,7 +141,7 @@ CreateChart.prototype.setSingleParentEmptyCard = function(single_parent_empty_ca
   this.store.state.single_parent_empty_card = single_parent_empty_card
   this.store.state.single_parent_empty_card_label = label
   if (this.editTreeInstance && this.editTreeInstance.addRelativeInstance.is_active) this.editTreeInstance.addRelativeInstance.onCancel()
-  f3.handlers.removeToAddFromData(this.store.getData() || [])
+  handlers.removeToAddFromData(this.store.getData() || [])
 
   return this
 }
