@@ -5,7 +5,7 @@ fetch('./data.json').then(r => r.json()).then(data => {
 
   const card = chart.setCard(f3.CardSvg)
   card
-    .setCardDim({w:220,h:100,text_x:100,text_y:55,img_w:80,img_h:80,img_x:10,img_y:10})
+    .setCardDim({w:220,h:70,text_x:75,text_y:15,img_w:60,img_h:60,img_x:5,img_y:5})
     .setCardDisplay([d => `${d.data['first name']} ${d.data['last name']}`])
     .setOnCardUpdate(onCardUpdate)
 
