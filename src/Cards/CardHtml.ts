@@ -1,7 +1,7 @@
 // @ts-nocheck
 import d3 from "../d3.js"
 import f3 from "../index.js"
-import {processCardDisplay} from "./utils.js"
+import {processCardDisplay, defaultCardLabel} from "./utils.js"
 import {pathToMain} from "../CalculateTree/createLinks.js"
 
 CardHtmlWrapper.is_html = true
@@ -12,7 +12,7 @@ function CardHtml(cont, store) {
   this.cont = cont
   this.store = store
   this.getCard = null
-  this.card_display = [d => `${d.data["first name"]} ${d.data["last name"]}`]
+  this.card_display = [defaultCardLabel]
   this.cardImageField = 'avatar'
   this.onCardClick = this.onCardClickDefault
   this.style = 'default'

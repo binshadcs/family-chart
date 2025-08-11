@@ -14,8 +14,8 @@ export function CardText({d,card_dim,card_display}) {
     <g>
       <g class="card-text" clip-path="url(#card_text_clip)">
         <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
-          <text>
-            ${Array.isArray(card_display) ? card_display.map(cd => `<tspan x="${0}" dy="${14}">${cd(d.data)}</tspan>`).join('\n') : card_display(d.data)}
+          <text text-anchor="middle">
+            ${Array.isArray(card_display) ? card_display.map(cd => `<tspan x="0" dy="14">${cd(d.data)}</tspan>`).join('\n') : card_display(d.data)}
           </text>
         </g>
       </g>
@@ -168,13 +168,16 @@ export function LinkBreakIconWrapper({d,card_dim}) {
 
 export function CardImage({d, image, card_dim, maleIcon, femaleIcon}) {
   return ({template: (`
-    <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image" clip-path="url(#card_image_clip)">
-      ${image 
-        ? `<image href="${image}" height="${card_dim.img_h}" width="${card_dim.img_w}" preserveAspectRatio="xMidYMin slice" />`
-        : (d.data.data.gender === "F" && !!femaleIcon) ? femaleIcon({card_dim}) 
-        : (d.data.data.gender === "M" && !!maleIcon) ? maleIcon({card_dim}) 
-        : GenderlessIcon()
-      }      
+    <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image">
+      <circle cx="${card_dim.img_w/2}" cy="${card_dim.img_h/2}" r="${card_dim.img_w/2}" fill="#fff" stroke="#ccc" stroke-width="2" />
+      <g clip-path="url(#card_image_clip)">
+        ${image
+          ? `<image href="${image}" height="${card_dim.img_h}" width="${card_dim.img_w}" preserveAspectRatio="xMidYMin slice" />`
+          : (d.data.data.gender === "F" && !!femaleIcon) ? femaleIcon({card_dim})
+          : (d.data.data.gender === "M" && !!maleIcon) ? maleIcon({card_dim})
+          : GenderlessIcon()
+        }
+      </g>
     </g>
   `)})
 

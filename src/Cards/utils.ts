@@ -19,3 +19,26 @@ export function processCardDisplay(card_display) {
   return card_display_arr
 }
 
+export function calculateAge(birthday) {
+  if (!birthday) return ''
+  const date = new Date(birthday)
+  if (!isNaN(date)) {
+    const today = new Date()
+    let age = today.getFullYear() - date.getFullYear()
+    const m = today.getMonth() - date.getMonth()
+    if (m < 0 || (m === 0 && today.getDate() < date.getDate())) age--
+    return age
+  }
+  const year = parseInt(birthday, 10)
+  if (!isNaN(year)) return new Date().getFullYear() - year
+  return ''
+}
+
+export function defaultCardLabel(person) {
+  const first = person['first name'] || ''
+  const lastInitial = person['last name'] ? person['last name'][0] : ''
+  const age = calculateAge(person['birthday'])
+  const ageStr = age === '' ? '' : ` (${age})`
+  return `${first} ${lastInitial}${ageStr}`.trim()
+}
+

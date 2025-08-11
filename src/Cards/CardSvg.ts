@@ -2,7 +2,7 @@
 import d3 from "../d3.js"
 import f3 from "../index.js"
 import {updateCardSvgDefs} from "../view/elements/Card.defs.js"
-import {processCardDisplay} from "./utils.js"
+import {processCardDisplay, defaultCardLabel} from "./utils.js"
 
 CardSvgWrapper.is_html = false
 export default function CardSvgWrapper(...args) { return new CardSvg(...args) }
@@ -12,8 +12,8 @@ function CardSvg(cont, store) {
   this.store = store
   this.svg = null
   this.getCard = null
-  this.card_dim = {w:220,h:70,text_x:75,text_y:15,img_w:60,img_h:60,img_x:5,img_y:5}
-  this.card_display = [d => `${d.data["first name"]} ${d.data["last name"]}`]
+  this.card_dim = {w:120,h:160,text_x:60,text_y:100,img_w:80,img_h:80,img_x:20,img_y:10}
+  this.card_display = [defaultCardLabel]
   this.mini_tree = true
   this.link_break = false
   this.onCardClick = this.onCardClickDefault.bind(this)
