@@ -105,6 +105,9 @@
   background: linear-gradient(#DEEBFE, #F2E8FF);
   color: var(--text-color);
 }
+.f3 #f3Canvas {
+  background: #DEEBFE;
+}
 .f3 {
   position: relative;
   display: flex;
