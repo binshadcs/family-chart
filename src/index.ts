@@ -11,6 +11,9 @@ import createChart from './createChart.js'
 
 import CardSvg from './Cards/CardSvg.js'
 import CardHtml from './Cards/CardHtml.js'
+import FamilyChartComponent from './react/FamilyChart.js'
+
+export { default as FamilyChart } from './react/FamilyChart.js'
 
 export default {
   CalculateTree,
@@ -25,4 +28,5 @@ export default {
 
   CardSvg,
   CardHtml,
+  FamilyChart: FamilyChartComponent,
 }
