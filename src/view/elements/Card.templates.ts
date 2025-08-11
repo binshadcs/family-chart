@@ -14,7 +14,7 @@ export function CardText({d,card_dim,card_display}) {
     <g>
       <g class="card-text" clip-path="url(#card_text_clip)">
         <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
-          <text text-anchor="middle">
+          <text>
             ${Array.isArray(card_display) ? card_display.map(cd => `<tspan x="0" dy="14">${cd(d.data)}</tspan>`).join('\n') : card_display(d.data)}
           </text>
         </g>
@@ -29,7 +29,7 @@ export function CardBodyAddNew({d,card_dim,card_add,label}) {
   return {template: (`
     <g class="card-body ${card_add ? 'card_add' : 'card-unknown'}">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" fill="rgb(59, 85, 96)" />
-      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="middle" fill="#fff">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="start" fill="#fff">
         <tspan font-size="18" dy="${8}">${label}</tspan>
       </text>
     </g>
@@ -41,7 +41,7 @@ export function CardBodyAddNewRel({d,card_dim,label}) {
   return {template: (`
     <g class="card-body">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" />
-      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="middle">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="start">
         <tspan font-size="18" dy="${8}" pointer-events="none">${label}</tspan>
       </text>
     </g>

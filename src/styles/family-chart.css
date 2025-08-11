@@ -333,13 +333,13 @@
 
 
 .f3 div.card-image-rect {
-  width: 140px;
-  min-height: 180px;
+  width: 180px;
+  min-height: 100px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
 }
 
 .f3 div.card-image-rect .person-icon {
@@ -348,7 +348,7 @@
   object-fit: cover;
   flex: 0 0 auto;
   padding: 5px;
-  margin-bottom: 5px;
+  margin-right: 5px;
   border-radius: 50%;
   border: 2px solid gray;
 }
@@ -359,7 +359,7 @@
   object-fit: cover;
   flex: 0 0 auto;
   padding: 5px;
-  margin-bottom: 5px;
+  margin-right: 5px;
   border-radius: 50%;
   border: 2px solid gray;
 }
@@ -371,11 +371,12 @@
   padding: 5px;
   border-radius: 50%;
   border: 2px solid gray;
-  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .f3 div.card-image-rect div.card-label {
   overflow: hidden;
+  flex: 1;
 }
 
 .f3 div.mini-tree {
