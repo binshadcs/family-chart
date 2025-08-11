@@ -110,7 +110,8 @@ export function CardHtml(props) {
 
   function getClassList(d) {
     const class_list = []
-    if (d.data.data.gender === 'M') class_list.push('card-male')
+    if (d.data.data.isLiving === false) class_list.push('card-deceased')
+    else if (d.data.data.gender === 'M') class_list.push('card-male')
     else if (d.data.data.gender === 'F') class_list.push('card-female')
     else class_list.push('card-genderless')
 

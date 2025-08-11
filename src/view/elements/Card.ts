@@ -10,7 +10,14 @@ export function Card(props) {
   setupCardSvgDefs(props.svg, props.card_dim)
 
   return function (d) {
-    const gender_class = d.data.data.gender === 'M' ? 'card-male' : d.data.data.gender === 'F' ? 'card-female' : 'card-genderless'
+    const gender_class =
+      d.data.data.isLiving === false
+        ? 'card-deceased'
+        : d.data.data.gender === 'M'
+        ? 'card-male'
+        : d.data.data.gender === 'F'
+        ? 'card-female'
+        : 'card-genderless'
     const card_dim = props.card_dim
 
     const card = d3.create('svg:g').attr('class', `card ${gender_class}`).attr('transform', `translate(${[-card_dim.w / 2, -card_dim.h / 2]})`)

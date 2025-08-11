@@ -74,7 +74,7 @@ export function handleRelsOfNewDatum({datum, data_stash, rel_type, rel_datum}) {
 }
 
 export function createNewPerson({data, rels}) {
-  return {id: generateUUID(), data: data || {}, rels: rels || {}}
+  return {id: generateUUID(), data: Object.assign({isLiving: true}, data || {}), rels: rels || {}}
 }
 
 export function createNewPersonWithGenderFromRel({data, rel_type, rel_datum}) {
