@@ -127,8 +127,8 @@
   border-radius: 4px;
   box-sizing: border-box;
   font-size: 14px;
-  background: var(--background-color);
-  color: currentColor;
+  background: #fff;
+  color: var(--text-color);
 }
 
 .f3-form input[type="text"]:focus,
@@ -567,7 +567,8 @@
   top: 0;
   width: 0;
   height: 100%;
-  background-color: var(--background-color);
+  background-color: #fff;
+  color: var(--text-color);
   overflow: auto;
   flex: 0 0 auto;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
