@@ -53,7 +53,7 @@ export function createForm({
   const childred_added = (datum.rels.children || []).some(c_id => {const child = store.getDatum(c_id); return !child._new_rel_data})
 
   form_creator.gender_field = {
-    id: 'gender', 
+    id: 'gender',
     type: 'switch',
     label: 'Gender',
     initial_value: datum.data.gender,
@@ -62,6 +62,17 @@ export function createForm({
       {value: 'M', label: 'Male'},
       {value: 'F', label: 'Female'},
       {value: 'O', label: 'Other'}
+    ]
+  }
+
+  form_creator.living_field = {
+    id: 'isLiving',
+    type: 'switch',
+    label: 'Living Status',
+    initial_value: datum.data.isLiving !== false,
+    options: [
+      {value: true, label: 'Living'},
+      {value: false, label: 'Deceased'}
     ]
   }
 
@@ -131,7 +142,7 @@ export function createForm({
   function submitFormChanges(e) {
     e.preventDefault()
     const form_data = new FormData(e.target)
-    form_data.forEach((v, k) => datum.data[k] = v)
+    form_data.forEach((v, k) => datum.data[k] = k === 'isLiving' ? v === 'true' : v)
     syncRelReference(datum, store.getData())
     if (datum.to_add) delete datum.to_add
     if (datum.unknown) delete datum.unknown

@@ -632,9 +632,11 @@
   background-color: rgba(0,0,0,0.4);
 }
 
-.f3-modal-content {
+.f3-modal-content,
+.f3 .modal-content {
   position: relative;
-  background-color: var(--background-color);
+  background-color: #fff;
+  color: #000;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -666,7 +668,8 @@
 
 .f3-popup-content {
   position: relative;
-  background-color: var(--background-color);
+  background-color: #fff;
+  color: #000;
   border: 1px solid #888;
   border-radius: 5px;
   overflow: hidden;
