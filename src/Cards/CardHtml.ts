@@ -18,7 +18,7 @@ function CardHtml(cont, store) {
   this.style = 'default'
   this.mini_tree = false
   this.onCardUpdate = null
-  this.card_dim = {}
+  this.card_dim = {w:140,h:180,img_w:80,img_h:80,img_x:30,img_y:10}
   this.cardInnerHtmlCreator = null
 
   this.init()

@@ -29,7 +29,7 @@ export function CardBodyAddNew({d,card_dim,card_add,label}) {
   return {template: (`
     <g class="card-body ${card_add ? 'card_add' : 'card-unknown'}">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" fill="rgb(59, 85, 96)" />
-      <text transform="translate(${card_dim.w/2}, ${card_dim.h/2})" text-anchor="middle" fill="#fff">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="middle" fill="#fff">
         <tspan font-size="18" dy="${8}">${label}</tspan>
       </text>
     </g>
@@ -41,7 +41,7 @@ export function CardBodyAddNewRel({d,card_dim,label}) {
   return {template: (`
     <g class="card-body">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" />
-      <text transform="translate(${card_dim.img_w+5}, ${card_dim.h/2})">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="middle">
         <tspan font-size="18" dy="${8}" pointer-events="none">${label}</tspan>
       </text>
     </g>

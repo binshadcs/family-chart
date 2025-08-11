@@ -39,7 +39,7 @@ export function CardSvg(props) {
       .append('g')
       .attr('class', 'card-edit-icon')
       .attr('fill', 'currentColor')
-      .attr('transform', `translate(-1,2)scale(${card_dim.img_h/22})`)
+      .attr('transform', `translate(${card_dim.img_x-1},${card_dim.img_y+2})scale(${card_dim.img_h/22})`)
       .html(plusIcon())
     } else {
       appendTemplate(CardBodyOutline({d,card_dim,is_new:d.data.to_add}).template, card.node(), true)
@@ -58,7 +58,7 @@ export function CardSvg(props) {
       img: true,
       mini_tree: true,
       link_break: false,
-      card_dim: {w:120,h:160,text_x:60,text_y:100,img_w:80,img_h:80,img_x:20,img_y:10}
+      card_dim: {w:140,h:180,text_x:70,text_y:110,img_w:80,img_h:80,img_x:30,img_y:10}
     }
     if (!props) props = {}
     for (const k in default_props) {

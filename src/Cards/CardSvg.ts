@@ -12,7 +12,7 @@ function CardSvg(cont, store) {
   this.store = store
   this.svg = null
   this.getCard = null
-  this.card_dim = {w:120,h:160,text_x:60,text_y:100,img_w:80,img_h:80,img_x:20,img_y:10}
+  this.card_dim = {w:140,h:180,text_x:70,text_y:110,img_w:80,img_h:80,img_x:30,img_y:10}
   this.card_display = [defaultCardLabel]
   this.mini_tree = true
   this.link_break = false

@@ -322,7 +322,7 @@
 .f3 div.card-rect {
   padding: 5px;
   border-radius: 3px;
-  width: 120px;
+  width: 140px;
   min-height: 70px;
   overflow: hidden;
   text-align: center;
@@ -333,8 +333,8 @@
 
 
 .f3 div.card-image-rect {
-  width: 120px;
-  min-height: 160px;
+  width: 140px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
