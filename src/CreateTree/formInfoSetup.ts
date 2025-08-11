@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as icons from '../view/elements/Card.icons.js'
 
 export function formInfoSetup(form_creator, closeCallback) {

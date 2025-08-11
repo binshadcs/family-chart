@@ -1,4 +1,3 @@
-// @ts-nocheck
 import CalculateTree from "./CalculateTree/CalculateTree.js"
 import createStore from "./createStore.js"
 import view from "./view/view.js"

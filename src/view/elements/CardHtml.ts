@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../../d3.js"
 import {personSvgIcon, miniTreeSvgIcon, plusSvgIcon} from "./Card.icons.js"
 import {handleCardDuplicateToggle} from "./CardHtml.duplicatesToggle.js"

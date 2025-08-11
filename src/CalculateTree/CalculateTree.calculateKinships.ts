@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from '../d3.js'
 
 // https://support.ancestry.co.uk/s/article/Understanding-Kinship-Terms

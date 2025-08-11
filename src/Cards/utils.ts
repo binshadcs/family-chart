@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function processCardDisplay(card_display) {
   const card_display_arr = []
   if (Array.isArray(card_display)) {

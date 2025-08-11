@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {removeToAdd} from "./form.js";
 
 export function handleRelsOfNewDatum({datum, data_stash, rel_type, rel_datum}) {

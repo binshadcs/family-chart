@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 import f3 from "../index.js"
 import {updateCardSvgDefs} from "../view/elements/Card.defs.js"

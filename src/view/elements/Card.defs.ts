@@ -1,4 +1,3 @@
-// @ts-nocheck
 export default function setupCardSvgDefs(svg, card_dim) {
   if (svg.querySelector("defs#f3CardDef")) return
   svg.insertAdjacentHTML('afterbegin', (`

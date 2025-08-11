@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function CardBody({d,card_dim,card_display}) {
   return {template: (`
     <g class="card-body">
