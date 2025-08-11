@@ -36,9 +36,10 @@ export function calculateAge(birthday) {
 
 export function defaultCardLabel(person) {
   const first = person['first name'] || ''
-  const last = person['last name'] || ''
+  const lastInitial = (person['last name'] || '').charAt(0)
   const age = calculateAge(person['birthday'])
   const ageStr = age === '' ? '' : ` (${age})`
-  return `${first} ${last}${ageStr}`.trim()
+  const lastStr = lastInitial ? ` ${lastInitial}` : ''
+  return `${first}${lastStr}${ageStr}`.trim()
 }
 
