@@ -9,7 +9,7 @@
     "strict": false,
     "skipLibCheck": true,
     "outDir": "dist",
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "include": ["src/**/*", "build.ts", "rollup.config.ts", "vite.config.ts"]
 }
