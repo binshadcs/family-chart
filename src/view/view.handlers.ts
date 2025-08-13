@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 
 function positionTree({t, svg, transition_time=2000}) {

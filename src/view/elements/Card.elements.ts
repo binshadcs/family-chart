@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../../d3.js"
 import {isAllRelativeDisplayed} from "../../handlers/general.js"
 import {cardChangeMain, cardEdit, cardShowHideRels} from "../../handlers/cardMethods.js"

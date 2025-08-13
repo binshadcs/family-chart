@@ -1,4 +1,3 @@
-// @ts-nocheck
 import CalculateTree from "./CalculateTree/CalculateTree.js"
 import createStore from "./createStore.js"
 import view from "./view/view.js"
@@ -11,6 +10,7 @@ import createChart from './createChart.js'
 
 import CardSvg from './Cards/CardSvg.js'
 import CardHtml from './Cards/CardHtml.js'
+import FamilyTree from './react/FamilyTree'
 
 export default {
   CalculateTree,
@@ -22,7 +22,9 @@ export default {
   htmlHandlers,
   icons,
   createChart,
-
   CardSvg,
   CardHtml,
+  FamilyTree,
 }
+
+export { FamilyTree }

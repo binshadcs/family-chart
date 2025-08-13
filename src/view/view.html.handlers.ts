@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 
 export function assignUniqueIdToTreeData(div, tree_data) {

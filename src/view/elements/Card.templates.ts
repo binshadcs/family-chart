@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function CardBody({d,card_dim,card_display}) {
   return {template: (`
     <g class="card-body">
@@ -15,7 +14,7 @@ export function CardText({d,card_dim,card_display}) {
       <g class="card-text" clip-path="url(#card_text_clip)">
         <g transform="translate(${card_dim.text_x}, ${card_dim.text_y})">
           <text>
-            ${Array.isArray(card_display) ? card_display.map(cd => `<tspan x="${0}" dy="${14}">${cd(d.data)}</tspan>`).join('\n') : card_display(d.data)}
+            ${Array.isArray(card_display) ? card_display.map(cd => `<tspan x="0" dy="14">${cd(d.data)}</tspan>`).join('\n') : card_display(d.data)}
           </text>
         </g>
       </g>
@@ -29,7 +28,7 @@ export function CardBodyAddNew({d,card_dim,card_add,label}) {
   return {template: (`
     <g class="card-body ${card_add ? 'card_add' : 'card-unknown'}">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" fill="rgb(59, 85, 96)" />
-      <text transform="translate(${card_dim.w/2}, ${card_dim.h/2})" text-anchor="middle" fill="#fff">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="start" fill="#fff">
         <tspan font-size="18" dy="${8}">${label}</tspan>
       </text>
     </g>
@@ -41,7 +40,7 @@ export function CardBodyAddNewRel({d,card_dim,label}) {
   return {template: (`
     <g class="card-body">
       <rect class="card-body-rect" width="${card_dim.w}" height="${card_dim.h}" />
-      <text transform="translate(${card_dim.img_w+5}, ${card_dim.h/2})">
+      <text transform="translate(${card_dim.text_x}, ${card_dim.text_y})" text-anchor="start">
         <tspan font-size="18" dy="${8}" pointer-events="none">${label}</tspan>
       </text>
     </g>
@@ -168,13 +167,16 @@ export function LinkBreakIconWrapper({d,card_dim}) {
 
 export function CardImage({d, image, card_dim, maleIcon, femaleIcon}) {
   return ({template: (`
-    <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image" clip-path="url(#card_image_clip)">
-      ${image 
-        ? `<image href="${image}" height="${card_dim.img_h}" width="${card_dim.img_w}" preserveAspectRatio="xMidYMin slice" />`
-        : (d.data.data.gender === "F" && !!femaleIcon) ? femaleIcon({card_dim}) 
-        : (d.data.data.gender === "M" && !!maleIcon) ? maleIcon({card_dim}) 
-        : GenderlessIcon()
-      }      
+    <g style="transform: translate(${card_dim.img_x}px,${card_dim.img_y}px);" class="card_image">
+      <circle cx="${card_dim.img_w/2}" cy="${card_dim.img_h/2}" r="${card_dim.img_w/2}" fill="#fff" stroke="#ccc" stroke-width="2" />
+      <g clip-path="url(#card_image_clip)">
+        ${image
+          ? `<image href="${image}" height="${card_dim.img_h}" width="${card_dim.img_w}" preserveAspectRatio="xMidYMin slice" />`
+          : (d.data.data.gender === "F" && !!femaleIcon) ? femaleIcon({card_dim})
+          : (d.data.data.gender === "M" && !!maleIcon) ? maleIcon({card_dim})
+          : GenderlessIcon()
+        }
+      </g>
     </g>
   `)})
 

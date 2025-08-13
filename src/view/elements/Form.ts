@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function Form({datum, rel_datum, store, rel_type, card_edit, postSubmit, card_display, edit: {el, open, close}}) {
   setupFromHtml();
   open();
@@ -15,6 +14,10 @@ export function Form({datum, rel_datum, store, rel_type, card_edit, postSubmit, 
               <label><input type="radio" name="gender" value="M" ${datum.data.gender === 'M' ? 'checked' : ''}><span>male</span></label><br>
               <label><input type="radio" name="gender" value="F" ${datum.data.gender === 'F' ? 'checked' : ''}><span>female</span></label><br>
               <label><input type="radio" name="gender" value="O" ${datum.data.gender === 'O' ? 'checked' : ''}><span>other</span></label><br>
+            </div>
+            <div>
+              <label><input type="radio" name="isLiving" value="true" ${datum.data.isLiving !== false ? 'checked' : ''}><span>living</span></label><br>
+              <label><input type="radio" name="isLiving" value="false" ${datum.data.isLiving === false ? 'checked' : ''}><span>deceased</span></label><br>
             </div>
           </div>
           ${getEditFields(card_edit)}
@@ -51,7 +54,7 @@ export function Form({datum, rel_datum, store, rel_type, card_edit, postSubmit, 
   function submitFormChanges(e) {
     e.preventDefault()
     const form_data = new FormData(e.target)
-    form_data.forEach((v, k) => datum.data[k] = v)
+    form_data.forEach((v, k) => datum.data[k] = k === 'isLiving' ? v === 'true' : v)
 
     close()
     postSubmit()

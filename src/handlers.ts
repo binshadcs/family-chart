@@ -1,4 +1,3 @@
-// @ts-nocheck
 export * from './handlers/general.js'
 export * from './handlers/cardMethods.js'
 export * from './CreateTree/newPerson.js'

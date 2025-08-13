@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as icons from '../view/elements/Card.icons.js'
 
 export function formInfoSetup(form_creator, closeCallback) {
@@ -96,6 +95,8 @@ export function formInfoSetup(form_creator, closeCallback) {
 
       ${genderRadio()}
 
+      ${livingRadio()}
+
       ${fields()}
       
       <div class="f3-form-buttons">
@@ -159,6 +160,23 @@ export function formInfoSetup(form_creator, closeCallback) {
               value="${option.value}" 
               ${option.value === form_creator.gender_field.initial_value ? 'checked' : ''}
               ${form_creator.gender_field.disabled ? 'disabled' : ''}
+            >
+            ${option.label}
+          </label>
+        `)).join('')}
+      </div>
+    `)
+  }
+
+  function livingRadio() {
+    if (!form_creator.editable) return ''
+    return (`
+      <div class="f3-radio-group">
+        ${form_creator.living_field.options.map(option => (`
+          <label>
+            <input type="radio" name="${form_creator.living_field.id}"
+              value="${option.value}"
+              ${option.value === form_creator.living_field.initial_value ? 'checked' : ''}
             >
             ${option.label}
           </label>

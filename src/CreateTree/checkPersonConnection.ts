@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function checkIfRelativesConnectedWithoutPerson(datum, data_stash) {
   const r = datum.rels,
     r_ids = [r.father, r.mother, ...(r.spouses || []), ...(r.children || [])].filter(r_id => !!r_id),

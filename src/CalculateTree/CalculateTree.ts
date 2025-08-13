@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 import {sortChildrenWithSpouses, sortAddNewChildren, setupSiblings, handlePrivateCards} from "./CalculateTree.handlers.js"
 import {createNewPerson} from "../CreateTree/newPerson.js"

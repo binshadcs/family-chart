@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function handleLinkRel(updated_datum, link_rel_id, store_data) {
   const new_rel_id = updated_datum.id
 

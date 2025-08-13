@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 
 export default function createSvg(cont, props={}) {

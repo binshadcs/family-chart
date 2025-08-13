@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function createLinks({d, tree, is_horizontal=false}) {
   const links = [];
   // d.spouses is always added to non-ancestry side for main blodline nodes

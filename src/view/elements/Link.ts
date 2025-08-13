@@ -1,11 +1,10 @@
-// @ts-nocheck
 import d3 from "../../d3.js";
 
 export default function Link({d, entering, exiting}) {
   const path = createPath(d, entering, exiting);
 
   return {template: (`
-    <path d="${path}" fill="none" stroke="#fff" />
+    <path d="${path}" fill="none" stroke="#D30002" />
   `)}
 }
 

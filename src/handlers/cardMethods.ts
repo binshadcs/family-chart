@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {toggleAllRels, toggleRels} from "../CalculateTree/CalculateTree.handlers.js"
 import {deletePerson, moveToAddToAdded} from "../CreateTree/form.js"
 
