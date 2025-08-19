@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../../d3.js"
 import {personSvgIcon, miniTreeSvgIcon, plusSvgIcon} from "./Card.icons.js"
 import {handleCardDuplicateToggle} from "./CardHtml.duplicatesToggle.js"
@@ -25,6 +24,15 @@ export function CardHtml(props) {
     if (props.onCardMouseleave) d3.select(this).select('.card').on('mouseleave', e => props.onCardMouseleave(e, d))
     if (d.duplicate) handleCardDuplicateHover(this, d)
     if (props.duplicate_branch_toggle) handleCardDuplicateToggle(this, d, props.store.state.is_horizontal, props.store.updateTree)
+    if (!props.store.state._f3_card_spacing_set) {
+      const cardHeight = this.querySelector('.card')?.offsetHeight || 0
+      const spacing = cardHeight + 40
+      props.store.state._f3_card_spacing_set = true
+      if (spacing && props.store.state.level_separation !== spacing) {
+        props.store.state.level_separation = spacing
+        props.store.updateTree({})
+      }
+    }
     if (location.origin.includes('localhost')) {
       d.__node = this.querySelector('.card')
       d.__label = d.data.data['first name']
@@ -110,7 +118,8 @@ export function CardHtml(props) {
 
   function getClassList(d) {
     const class_list = []
-    if (d.data.data.gender === 'M') class_list.push('card-male')
+    if (d.data.data.isLiving === false) class_list.push('card-deceased')
+    else if (d.data.data.gender === 'M') class_list.push('card-male')
     else if (d.data.data.gender === 'F') class_list.push('card-female')
     else class_list.push('card-genderless')
 

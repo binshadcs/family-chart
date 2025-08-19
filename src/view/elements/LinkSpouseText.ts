@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../../d3.js"
 
 import {calculateDelay} from "../view.js"

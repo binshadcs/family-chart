@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { createNewPerson } from "./newPerson.js"
 import { handleLinkRel } from "./addRelative.linkRel.js"
 

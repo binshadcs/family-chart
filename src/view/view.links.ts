@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "../d3.js"
 
 import {createLinks} from "../CalculateTree/createLinks.js"
@@ -21,7 +20,7 @@ export default function updateLinks(svg, tree, props={}) {
   link_update.each(linkUpdate)
 
   function linkEnter(d) {
-    d3.select(this).attr("fill", "none").attr("stroke", "#fff").attr("stroke-width", 1).style("opacity", 0)
+    d3.select(this).attr("fill", "none").attr("stroke", "#D30002").attr("stroke-width", 1).style("opacity", 0)
       .attr("d", createPath(d, true))
   }
 

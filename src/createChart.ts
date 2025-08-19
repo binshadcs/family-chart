@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from "./d3.js"
 import f3 from "./index.js"
 import editTree from "./CreateTree/editTree.js"
@@ -156,6 +155,11 @@ CreateChart.prototype.setCard = function(Card) {
 
   const card = Card(this.cont, this.store)
   this.getCard = () => card.getCard()
+
+  if (card.card_dim && typeof card.card_dim.h === 'number') {
+    const spacing = card.card_dim.h + 40
+    this.setCardYSpacing(spacing)
+  }
 
   return card
 }

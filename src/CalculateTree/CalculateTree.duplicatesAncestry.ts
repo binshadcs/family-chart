@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function handleDuplicateHierarchyAncestry(root, on_toggle_one_close_others=true) {
   const ancestry_duplicates = []
 

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import d3 from '../d3.js'
 import {personSvgIcon, chevronDownSvgIcon, linkOffSvgIcon} from '../view/elements/Card.icons.js'
 import { checkIfConnectedToFirstPerson } from './checkPersonConnection.js'

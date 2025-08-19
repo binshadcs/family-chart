@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function userIcon() {
   return (`
     <g data-icon="user">

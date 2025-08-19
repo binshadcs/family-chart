@@ -1,4 +1,3 @@
-// @ts-nocheck
 export function handleDuplicateSpouseToggle(tree) {
   tree.forEach(d => {
     if (!d.spouse) return
